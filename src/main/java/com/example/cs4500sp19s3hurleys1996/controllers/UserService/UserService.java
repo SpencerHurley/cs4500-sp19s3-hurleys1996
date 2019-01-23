@@ -10,5 +10,15 @@ public class UserService {
 	public List<User> findAllUsers() {
 		return users;
 	}
+	
+	@GetMapping("/api/user/{userId}")
+	public User findUserById(
+		@PathVariable("userId") Integer id) {
+		for(User user: users) {
+			if(user.getId() == id) {
+				return user;
+		}
+		return null;
+	}
 }
 
